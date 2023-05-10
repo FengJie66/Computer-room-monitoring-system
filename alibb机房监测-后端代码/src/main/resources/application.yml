@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/monitor_system?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: fzb.0226
+
+mqtt:
+  broker: tcp://broker-cn.emqx.io:1883
+  topic: /hgfsmarthome/pub
+  qos: 2
+  username: emqx_user
+  password: emqx_password
+
+jwt:
+  secret: alibb-monitor-system
+  expiration: 86400
+  tokenHeader: Authorization
+  tokenHead: 'Bearer '
+
+server:
+  port: 8080
+  max-http-header-size: 209715200
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: t_
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    root: info
